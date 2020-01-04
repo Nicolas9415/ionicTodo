@@ -1,0 +1,13 @@
+<ion-card class="list-container">
+  <ion-card-header class="list-header">
+    <ion-reorder class="reorder-item">
+      <ion-card-title class="list-text">{{ item.task }}</ion-card-title>
+    </ion-reorder>
+    <ion-checkbox
+      checked="{{ item.active }}"
+      class="checkbox"
+      color="primary"
+      (click)="onCheckboxClick()"
+    ></ion-checkbox>
+  </ion-card-header>
+</ion-card>

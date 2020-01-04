@@ -1,0 +1,52 @@
+<ion-backdrop
+  tappable="true"
+  [ngClass]="addTaskVisible || displaInfo?'show':'hide'"
+  (ionBackdropTap)="dismissBackdrop()"
+></ion-backdrop>
+<app-add-task [ngClass]="addTaskVisible? 'show':'hide'"></app-add-task>
+<app-display-info [ngClass]="displaInfo? 'show':'hide'"></app-display-info>
+
+<div class="title-container">
+  <ion-text
+    [ngClass]="[(active? 'active':'disabled'),'main-title']"
+    (click)="onTitleClick(true)"
+    >To-Do</ion-text
+  >
+  <div class="title-divider"></div>
+  <ion-text
+    [ngClass]="[(active? 'disabled':'active'),'main-title']"
+    (click)="onTitleClick(false)"
+    >Done</ion-text
+  >
+</div>
+
+<ion-content (swipe)="swipeEvent($event)" [ngClass]="checkRenderItems().length===0? 'no-scroll':'' ">
+  <div class="main-content">
+    <ion-text class="empty-text" *ngIf="checkRenderItems().length===0"
+      >{{emptyText()}}</ion-text
+    >
+  </div>
+  <ion-content>
+    <ion-reorder-group
+      disabled="{{checkIfCanreorder()}}"
+      (ionItemReorder)="reorder($event)"
+    >
+      <app-list-element
+        class="list-element"
+        [item]="item"
+        *ngFor="let item of checkRenderItems()"
+        (press)="displayInfo(item)"
+      ></app-list-element>
+    </ion-reorder-group>
+  </ion-content>
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+    (click)="floatingBtnCLick()"
+  >
+    <ion-fab-button>
+      <ion-icon name="add" class="floatIcon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,48 @@
+<div class="main-content">
+  <span class="modal-title">Task Details</span>
+
+  <ion-content>
+    <div class="description-content">
+      <div class="description-item">
+        <span class="description">Task</span>
+        <span class="description-value">{{ item.task }}</span>
+        <div class="divider"></div>
+      </div>
+      <div class="description-item">
+        <span class="description">Status</span>
+        <span class="description-value">{{
+          item.active ? 'Compleated' : 'Not yet compleated'
+        }}</span>
+        <div class="divider"></div>
+      </div>
+      <div class="description-item">
+        <span class="description">Location</span>
+        <span class="description-value">{{ item.location }}</span>
+        <div class="divider"></div>
+      </div>
+      <div class="description-item">
+        <span class="description">Date due</span>
+        <span class="description-value">{{
+          item.date === 'null' || item.date === null
+            ? 'No date added'
+            : item.date
+        }}</span>
+        <div class="divider"></div>
+      </div>
+      <div class="description-item-image" *ngIf="imageUrl">
+        <span class="description">Image</span>
+        <div class="image-container">
+          <ion-img [src]="imageUrl" class="image" *ngIf="imageUrl"></ion-img>
+        </div>
+      </div>
+      <div class="description-item-no-image" *ngIf="!imageUrl">
+        <span class="description">Image</span>
+        <ion-text class="description-value-no-image">No image to show</ion-text>
+      </div>
+      <div class="btn-container">
+        <ion-text class="back-btn" (click)="backClick()">Back</ion-text>
+        <button class="delete-btn" (click)="deleteTask()">DELETE</button>
+      </div>
+    </div>
+  </ion-content>
+</div>

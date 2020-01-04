@@ -1,0 +1,110 @@
+@import '../../theme/fonts.scss';
+$light-blue: rgba(92, 168, 224, 1);
+$light-gray: rgb(121, 121, 121);
+
+* {
+  font-family: 'Roboto-Regular';
+}
+.main-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  align-self: center;
+  z-index: 12000;
+  padding: 15px;
+  position: relative;
+}
+
+.modal-title {
+  color: $light-blue;
+  font-size: 35px;
+}
+.description-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  margin-top: 15px;
+  position: relative;
+}
+.description {
+  color: black;
+  font-size: 35px;
+  align-self: flex-start;
+}
+.description-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.divider {
+  height: 2px;
+  background-color: $light-blue;
+  margin: 5px 0;
+}
+.description-value {
+  font-size: 20px;
+  padding-left: 10px;
+  color: #9e9e9e;
+  margin-bottom: 5px;
+}
+.description-item-image {
+  align-self: flex-start;
+  max-height: 300px;
+  max-width: 300px;
+}
+.image {
+  max-height: 100%;
+  max-width: 30%;
+}
+.image-container {
+  display: flex;
+  max-height: 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.back-btn {
+  color: $light-blue;
+}
+.delete-btn {
+  background-color: rgb(244,67,54);
+  color: white;
+  padding: 10px 20px;
+  font-weight: 900;
+}
+.btn-container {
+  margin: auto;
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin-left: 15px;
+}
+.description-item-no-image{
+  height: 105px;
+  align-items: center;
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.description-value-no-image{
+  @extend .description-value;
+  color: black;
+}

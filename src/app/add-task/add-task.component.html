@@ -1,0 +1,40 @@
+<div class="main-content">
+  <ion-backdrop tappable="true" [ngClass]="cameraOptionsMenu ? 'show' : 'hide'" (ionBackdropTap)="dismissBackdrop()"
+    stopPropagation='false'>
+  </ion-backdrop>
+  <span class="modal-title">
+    Please enter your task details
+  </span>
+  <div class="task-description">
+    <ion-label>Task description</ion-label>
+    <ion-input type="text" minlength="1" placeholder="Task description" class="task-description-input"
+      value="{{ taskDescription }}" (input)="onTextChange($event)"></ion-input>
+  </div>
+  <div class="icons-container">
+    <label>Add an image</label>
+    <ion-icon name="camera" (click)="openSubMenu()"></ion-icon>
+  </div>
+  <div class="icons-container">
+    <label>when is the task due?</label>
+    <ion-icon name="calendar" (click)="showDatePicker()"></ion-icon>
+
+  </div>
+  <div class="action-buttons">
+    <ion-text class=" single-button cancel-button" (click)="closeAll()">Cancel</ion-text>
+    <ion-text [ngClass]="taskDescription===''?'single-button-disbaled': 'single-button'" (click)='postTask()'>Confirm
+    </ion-text>
+  </div>
+</div>
+<div [ngClass]="cameraOptionsMenu ? 'camera-options-show' : 'camera-options-hide'">
+  <label>Please choose between camera or gallery</label>
+  <div class="camera-content">
+    <div class="second-option">
+      <label>Camera</label>
+      <ion-icon name="camera" (click)="openDeviceCamera(1)"></ion-icon>
+    </div>
+    <div class="second-option">
+      <label>Gallery</label>
+      <ion-icon name="image" (click)="openDeviceCamera(0)"></ion-icon>
+    </div>
+  </div>
+</div>
